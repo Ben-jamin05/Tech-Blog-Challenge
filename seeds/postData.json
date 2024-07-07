@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Example post one",
+        "content": "Example content one",
+        "data_created": "07/06/2024",
+        "user_id": "8"
+    },
+    {
+        "title": "Example post two",
+        "content": "Example content two",
+        "data_created": "07/07/2024",
+        "user_id": "9"
+    }
+]
