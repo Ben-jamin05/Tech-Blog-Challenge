@@ -40,8 +40,37 @@ router.get('/post/:id', async (req, res) => {
     const post = postData.get({ plain: true });
 
     res.render('post', {
-      ...post, //change maybe
+      ...post,
       logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/dashboard', async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: [
+        {
+          id: req.session.user.id //ask about this
+        }
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('dashboard', { 
+      posts, 
+      logged_in: req.session.logged_in 
     });
   } catch (err) {
     res.status(500).json(err);
