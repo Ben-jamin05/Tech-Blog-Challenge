@@ -48,12 +48,12 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: [
         {
-          id: req.session.user.id //ask about this
+          user_id: req.session.user.id
         }
       ],
       include: [
