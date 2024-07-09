@@ -53,7 +53,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
     const postData = await Post.findAll({
       where: [
         {
-          user_id: req.session.user.id
+          user_id: req.session.user_id
         }
       ],
       include: [
@@ -73,6 +73,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    //console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get('/newpost', withAuth, async (req, res) => {
+  try {
+    res.render('newpost'), {
+      logged_in: req.session.logged_in 
+    }
+  } catch (err) {
+    //console.log(err);
     res.status(500).json(err);
   }
 });
