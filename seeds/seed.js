@@ -7,13 +7,13 @@ const seedDatabase = async () => {
   await sequelize.sync({ force: true });
 
   for (const post of postData) {
-    await post.create({
-      ...post //change if needed
+    await Post.create({
+      ...post
     });
   }
 
   process.exit(0);
 };
 
-//seedDatabase();
-//for safety 
+seedDatabase();
+
