@@ -56,14 +56,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
           user_id: req.session.user_id
         }
       ],
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
     });
-
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
 
@@ -92,7 +85,7 @@ router.get('/newpost', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/homepage');
+    res.redirect('/');
     return;
   }
 

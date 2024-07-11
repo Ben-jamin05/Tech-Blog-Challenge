@@ -2,7 +2,7 @@
 
 ## Description
 
-My motivation for this project was to . This consists of using    to create  . I accomplished this with my skills in   and my knew knowledge of  . 
+My motivation for this project was to create a tech blog website. This consists of using handlebars to create a dynamic front end and using js to handle logic and form submition and using sql to store all data. I accomplished this with my skills in js, css, sql and my knew knowledge of handlebars. 
 
 ## Installation
 
@@ -19,7 +19,17 @@ You should have,
 
 ## Usage
 
+Use this [Link](https://tech-blog-challenge-w363.onrender.com) to go to the website.
+When you navigate to the site you will see something like the following.
+![First Look](./images/Screenshot%202024-07-11%20at%209.42.49 AM.png)
+You will then need to click on the login button to login/signup.
+Once you have done that you can navigate to the dashboard and it will look something like this.
+![Dashboard Look](./images/Screenshot%202024-07-11%20at%209.45.08 AM.png)
+You can click on the new post button to create your new post and see the posts youve made on your dashboard and see all the posts made by everyone else on the home page.
 
+## Issues
+
+As of now there are unfortunately a few issues. You are unable to edit your own post and comment on another post. While I believe I am close to finishing those features they are not working at this time. 
 
 ## Credits 
 
@@ -51,6 +61,7 @@ SOFTWARE.
 
 
 
-## Link
+## Links
 
-[Link]()
+[Link](https://tech-blog-challenge-w363.onrender.com)
+[Github](https://github.com/Ben-jamin05/Tech-Blog-Challenge)

@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User, Post } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
-    console.log('req made to users');
-    console.log(req.body);
+    //console.log('req made to users');
+    //console.log(req.body);
     const userData = await User.create(req.body);
-    console.log(userData);
+    //console.log(userData);
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
@@ -14,7 +14,19 @@ router.post('/', async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
+    //console.log(err);
+    res.status(400).json(err);
+  }
+});
+
+router.post('/newpost', async (req, res) => {
+  try {
+    const postData = await Post.create({ 
+      ...req.body,
+      user_id: req.session.user_id
+    });
+    res.status(200).json(postData);
+  } catch (err) {
     res.status(400).json(err);
   }
 });
